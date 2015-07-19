@@ -8,4 +8,8 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 
+<!-- CSS -->
+
+{!! HTML::style('bower_components/bootstrap/dist/css/bootstrap.min.css')!!}
+
 <title>Example Authentication App</title>

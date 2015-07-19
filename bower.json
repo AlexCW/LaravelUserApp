@@ -1,0 +1,13 @@
+{
+  "name": "Alex Williams",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AlexCW/LaravelUserApp",
+  "authors": [
+    "Alex CW <alex.c.williams91@gmail.com>"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  },
+  "description": "Example User Auth App",
+  "license": "MIT"
+}
