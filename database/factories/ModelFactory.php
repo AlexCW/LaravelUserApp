@@ -1,5 +1,7 @@
 <?php
 
+use App\Storage\User\User;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -11,11 +13,16 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(User::class, function ($faker) {
+
+	$random_date = $faker->dateTimeThisYear;
+
     return [
-        'name' => $faker->name,
+        'username' => $faker->userName,
         'email' => $faker->email,
-        'password' => str_random(10),
+        'password' => bcrypt($faker->word),
         'remember_token' => str_random(10),
+        'created_at' 	=> $random_date,
+		'updated_at' 	=> $random_date
     ];
 });
