@@ -1,48 +1,55 @@
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.main')
+@section('content') 
 
-        <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        color: #B0BEC5;
+        display: table;
+        font-weight: 100;
+        font-family: 'Lato';
+    }
 
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+    .container {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+    .content {
+        text-align: center;
+        display: inline-block;
+    }
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+    .title {
+        font-size: 96px;
+    }
 
-            .title {
-                font-size: 96px;
-                margin-bottom: 40px;
-            }
+    .quote {
+        font-size: 24px;
+    }
 
-            .quote {
-                font-size: 24px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-                <div class="quote">{{ Inspiring::quote() }}</div>
-            </div>
-        </div>
-    </body>
-</html>
+    a {
+        margin-top: 10px;
+    }
+</style>
+<div class="container">
+    <div class="content">
+        <div class="title">Laravel 5</div>
+        <div class="quote">{{ Inspiring::quote() }}</div>
+        <?php if(Auth::check()): ?>
+            <a href="auth/logout" class="btn btn-danger" title="Logout">Logout</a>
+        <?php else: ?>
+            <a href="auth/register" class="btn btn-primary" title="Register">
+                Register
+            </a>
+            <a href="auth/login" class="btn btn-primary" title="Login">
+                Login
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
+    
