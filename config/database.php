@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => $app->environment() == 'testing' || $app->environment() == 'acceptance' ? 'sqlite' : 'mysql', 
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ return [
 
         'sqlite' => [
             'driver'   => 'sqlite',
-            'database' => storage_path('database.sqlite'),
+            'database' => storage_path(env('DB_PATH', 'acceptance.sqlite')),
             'prefix'   => '',
         ],
 

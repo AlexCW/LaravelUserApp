@@ -1,0 +1,11 @@
+default:
+    extensions:
+        Laracasts\Behat\ServiceContainer\BehatExtension:
+             env_path: .env.behat
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: laravel
+            laravel: ~
+    suites:
+        default:
+            contexts:
+                - FeatureContext
