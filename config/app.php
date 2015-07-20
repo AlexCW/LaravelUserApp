@@ -148,6 +148,8 @@ return [
          * Custom Service Providers....
          */
         App\Providers\ObserverServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -196,6 +198,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        //Custom
+        'HTML'      => Illuminate\Html\HtmlFacade::class,
     ],
 
 ];
