@@ -36,7 +36,12 @@ class ValidationObserver {
     }
 
     public function validate(\Eloquent $model){
-		$this->validator->setData($model->getAttributes());
+    	$additional_data = $this->getAdditionalData();
+
+		$this->validator->setData(array_merge(
+			$model->getAttributes(), 
+			is_array($additional_data) ? $additional_data : array()
+		));
 
         $this->setConditionalRules($model);
 
@@ -50,4 +55,6 @@ class ValidationObserver {
     }
 
     protected function setConditionalRules(\Eloquent $model){}
+
+    protected function setAdditionalData(){}
 }

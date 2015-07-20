@@ -5,8 +5,7 @@
         protected $rules = [
             'username'  => 'required|alpha_dash|unique:users,username|min:2|max:20',
             'email'    => 'required|email|unique:users,email',
-            'password' => 'required|alpha_dash|min:6|max:64',
-            'password_confirmation' => 'same:password',
+            'password' => 'required|alpha_dash|min:6|max:64|confirmed',
         ];
 
         /**
@@ -14,6 +13,7 @@
          * @param Eloquent $model [description]
          */
         protected function setConditionalRules(\Eloquent $model){
+
             $id = $model->getKey();
 
             foreach(['email', 'username'] as $field){
@@ -34,5 +34,8 @@
 
         }
 
+        protected function getAdditionalData() {
+            return ['password_confirmation' => \Input::get('password_confirmation')];
+        }
     }
 
