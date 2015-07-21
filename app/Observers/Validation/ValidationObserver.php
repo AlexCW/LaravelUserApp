@@ -56,5 +56,5 @@ class ValidationObserver {
 
     protected function setConditionalRules(\Eloquent $model){}
 
-    protected function setAdditionalData(){}
+    protected function getAdditionalData(){}
 }
